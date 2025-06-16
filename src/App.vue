@@ -2,8 +2,8 @@
   <a-config-provider :getPopupContainer="getPopupContainer">
     <ThemeProvider is-root v-bind="themeConfig" :apply-style="false">
       <stepin-view
-        system-name="Stepin"
-        logo-src="@/assets/vite.svg"
+        system-name="MLStats"
+        logo-src="/favicon_wechat.png"
         :class="`${contentClass}`"
         :user="user"
         :navMode="navigation"
@@ -14,7 +14,7 @@
         @themeSelect="configTheme"
       >
         <template #headerActions>
-          <HeaderActions @showSetting="showSetting = true" />
+          <HeaderActions @showSetting="showSetting = false" />
         </template>
         <template #pageFooter>
           <PageFooter />
@@ -34,7 +34,7 @@
   import { reactive, ref } from 'vue';
   import { useRouter } from 'vue-router';
   import { useAccountStore, useMenuStore, useSettingStore, storeToRefs } from '@/store';
-  import avatar from '@/assets/avatar.png';
+  import avatar from '/favicon_wechat.png';
   import { PageFooter, HeaderActions } from '@/components/layout';
   import Setting from './components/setting';
   import { LoginModal } from '@/pages/login';
@@ -63,14 +63,14 @@
     name: 'admin',
     avatar: avatar,
     menuList: [
-      { title: '个人中心', key: 'personal', icon: 'UserOutlined', onClick: () => router.push('/profile') },
-      { title: '设置', key: 'setting', icon: 'SettingOutlined', onClick: () => (showSetting.value = true) },
+      //{ title: '个人中心', key: 'personal', icon: 'UserOutlined', onClick: () => router.push('/profile') },
+      //{ title: '设置', key: 'setting', icon: 'SettingOutlined', onClick: () => (showSetting.value = false) },
       { type: 'divider' },
       {
         title: '退出登录',
         key: 'logout',
         icon: 'LogoutOutlined',
-        onClick: () => logout().then(() => router.push('/login')),
+        //onClick: () => logout().then(() => router.push('/login')),
       },
     ],
   });

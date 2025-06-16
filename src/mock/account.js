@@ -33,7 +33,7 @@ Mock.mock('api/account', 'get', ({}) => {
     message: 'success',
     data: {
       account: {
-        username: 'iczer',
+        username: 'admin',
         age: 18,
         gender: 0,
         avatar: 'http://portrait.gitee.com/uploads/avatars/user/691/2073535_iczer_1578965604.png!avatar30',

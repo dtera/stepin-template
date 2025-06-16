@@ -4,7 +4,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    redirect: '/home',
+    redirect: '/list',
     meta: {
       title: '首页',
       renderMenu: false,
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       renderMenu: false,
     },
-    component: () => import('@/components/layout/FrontView.vue'),
+    //component: () => import('@/components/layout/FrontView.vue'),
     children: [
       {
         path: '/login',

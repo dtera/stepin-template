@@ -22,6 +22,9 @@ export function configTheme(key: string) {
     case 'header-dark':
       setNavigation('head');
       break;
+    case 'header-light':
+      setNavigation('head');
+      break;
     default:
       setNavigation('side');
   }
@@ -45,6 +48,12 @@ export const themeList: Theme.ThemeConfig[] = [
     key: 'header-dark',
     imgUrl: HeaderDarkImg,
     config: { color: { middle: { 'bg-base': '#fff', 'bg-header': '#001129' } } },
+  },
+  {
+    title: '顶部亮色菜单',
+    key: 'header-light',
+    imgUrl: LightImg,
+    config: { color: { middle: { 'bg-base': '#fff', 'bg-header': '#fff' } } },
   },
   {
     title: 'VSCode风',
