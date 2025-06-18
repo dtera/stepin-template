@@ -18,7 +18,7 @@
 
       <a-row class="detail-row">
         <a-col :span="6" class="detail-label">商品title：</a-col>
-        <a-col :span="18" class="detail-value">{{ record.prod_title }}</a-col>
+        <a-col :span="18" class="detail-value">{{ record.prodTitle }}</a-col>
       </a-row>
 
       <a-row class="detail-row">
@@ -26,20 +26,20 @@
         <a-col :span="18" class="detail-value">
           <a-image
               :width="100"
-              :src="record.prod_img_url?.split(',')[0]"
+              :src="record.prodImgUrl?.split(',')[0]"
           />
         </a-col>
       </a-row>
 
       <a-row class="detail-row">
         <a-col :span="6" class="detail-label">品类：</a-col>
-        <a-col :span="18" class="detail-value">{{ record.prod_type }}</a-col>
+        <a-col :span="18" class="detail-value">{{ record.prodType }}</a-col>
       </a-row>
 
       <a-row class="detail-row">
         <a-col :span="6" class="detail-label">商详：</a-col>
         <a-col :span="18" class="detail-value">
-          <div>{{ parseJson(record.prod_detail) }}</div>
+          <div>{{ parseJson(record.prodDetail) }}</div>
         </a-col>
       </a-row>
 
@@ -47,11 +47,11 @@
         <a-col :span="6" class="detail-label">大模型推理商品名：</a-col>
         <a-col :span="18" class="detail-value">
           <vue-json-pretty
-              v-if="typeof parseJson(record.prod_llm_pred_names, true) === 'object'"
-              :data="parseJson(record.prod_llm_pred_names, true)"
+              v-if="typeof parseJson(record.prodLlmPredNames, true) === 'object'"
+              :data="parseJson(record.prodLlmPredNames, true)"
               :deep="3"
           />
-          <span v-else>{{ parseJson(record.prod_llm_pred_names, true) }}</span>
+          <span v-else>{{ parseJson(record.prodLlmPredNames, true) }}</span>
         </a-col>
       </a-row>
     </div>

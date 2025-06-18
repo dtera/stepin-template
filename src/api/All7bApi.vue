@@ -12,33 +12,33 @@ export const all7bColumns = [
   },
   {
     title: '商品title',
-    dataIndex: 'prod_title',
-    key: 'prod_title',
+    dataIndex: 'prodTitle',
+    key: 'prodTitle',
     width: "15%",
   },
   {
     title: '商品图片',
-    dataIndex: 'prod_img_url',
-    key: 'prod_img_url',
+    dataIndex: 'prodImgUrl',
+    key: 'prodImgUrl',
     width: "10%",
   },
   {
     title: '品类',
-    key: 'prod_type',
-    dataIndex: 'prod_type',
+    key: 'prodType',
+    dataIndex: 'prodType',
     width: "10%",
   },
   {
     title: '商详',
-    key: 'prod_detail',
-    dataIndex: 'prod_detail',
+    key: 'prodDetail',
+    dataIndex: 'prodDetail',
     width: "20%",
     customCell: () => ({style: {wordBreak: 'break-all'}}),
   },
   {
     title: '大模型推理商品名',
-    key: 'prod_llm_pred_names',
-    dataIndex: 'prod_llm_pred_names',
+    key: 'prodLlmPredNames',
+    dataIndex: 'prodLlmPredNames',
     width: "30%",
   },
   {
@@ -57,11 +57,11 @@ type APIResult = {
   records: {
     id: string;
     key: string;
-    prod_title: string;
-    prod_img_url: string;
-    prod_type: string;
-    prod_detail: string;
-    prod_llm_pred_names: string;
+    prodTitle: string;
+    prodImgUrl: string;
+    prodType: string;
+    prodDetail: string;
+    prodLlmPredNames: string;
   }[];
   total: number;
   size: number;

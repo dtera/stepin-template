@@ -79,16 +79,16 @@ const dataSource = computed(() => data.value || []);
           <a @click="showDetail(record)">详情</a>
         </a-space>
       </template>
-      <template v-else-if="column.key === 'prod_img_url'">
+      <template v-else-if="column.key === 'prodImgUrl'">
         <a-image
             :width="60"
             :src="text.split(',')[0]"
         />
       </template>
-      <template v-else-if="column.key === 'prod_detail'">
+      <template v-else-if="column.key === 'prodDetail'">
         <div>{{ parseJson(text) }}</div>
       </template>
-      <template v-else-if="column.key === 'prod_llm_pred_names'">
+      <template v-else-if="column.key === 'prodLlmPredNames'">
         <vue-json-pretty
             v-if="typeof parseJson(text, true) === 'object'"
             :data="parseJson(text, true)"
