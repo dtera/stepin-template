@@ -26,7 +26,7 @@ export const all7bColumns = [
     title: '品类',
     key: 'prodType',
     dataIndex: 'prodType',
-    width: "10%",
+    width: "6%",
   },
   {
     title: '商详',
@@ -36,10 +36,22 @@ export const all7bColumns = [
     customCell: () => ({style: {wordBreak: 'break-all'}}),
   },
   {
-    title: '大模型推理商品名',
-    key: 'prodLlmPredNames',
-    dataIndex: 'prodLlmPredNames',
-    width: "30%",
+    title: '小店标准商品名',
+    key: 'normalName',
+    dataIndex: 'normalName',
+    width: "12%",
+  },
+  {
+    title: '文章推理L3商品名',
+    key: 'l3NameBiz',
+    dataIndex: 'l3NameBiz',
+    width: "12%",
+  },
+  {
+    title: '文章推理品牌名',
+    key: 'brandBiz',
+    dataIndex: 'brandBiz',
+    width: "10%",
   },
   {
     title: '操作',

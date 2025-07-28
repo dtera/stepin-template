@@ -39,19 +39,19 @@
       <a-row class="detail-row">
         <a-col :span="6" class="detail-label">商详：</a-col>
         <a-col :span="18" class="detail-value">
-          <div>{{ parseJson(record.prodDetail) }}</div>
+          <div v-html="parseJson(record.prodDetail)"></div>
         </a-col>
       </a-row>
 
       <a-row class="detail-row">
-        <a-col :span="6" class="detail-label">大模型推理商品名：</a-col>
+        <a-col :span="6" class="detail-label">文章推理L3商品名：</a-col>
         <a-col :span="18" class="detail-value">
           <vue-json-pretty
-              v-if="typeof parseJson(record.prodLlmPredNames, true) === 'object'"
-              :data="parseJson(record.prodLlmPredNames, true)"
+              v-if="typeof parseJson(record.l3NameBiz, true) === 'object'"
+              :data="parseJson(record.l3NameBiz, true)"
               :deep="3"
           />
-          <span v-else>{{ parseJson(record.prodLlmPredNames, true) }}</span>
+          <span v-else>{{ parseJson(record.l3NameBiz, true) }}</span>
         </a-col>
       </a-row>
     </div>

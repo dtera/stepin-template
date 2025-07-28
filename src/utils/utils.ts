@@ -21,7 +21,7 @@ export const parseJson = (value: any, ret_json: boolean = false) => {
             if (categories.length >= 2) {
                 const key = categories[0]?.name ?? "";
                 const value = categories[1]?.name ?? "";
-                result += `${key}:${value}\n`;
+                result += `${key}:${value}<br>`;
             }
         }
 

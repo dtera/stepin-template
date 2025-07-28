@@ -86,7 +86,7 @@ const dataSource = computed(() => data.value || []);
         />
       </template>
       <template v-else-if="column.key === 'prodDetail'">
-        <div>{{ parseJson(text) }}</div>
+        <div v-html="parseJson(text)"></div>
       </template>
       <template v-else-if="column.key === 'prodLlmPredNames'">
         <vue-json-pretty
