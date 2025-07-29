@@ -96,7 +96,9 @@ const dataSource = computed(() => data.value || []);
         />
         <span v-else>{{ parseJson(text, true) }}</span>
       </template>
-
+      <template v-else-if="column.key === 'skuMinPrice'">
+        <div>{{text / 100}}元</div>
+      </template>
     </template>
   </a-table>
 

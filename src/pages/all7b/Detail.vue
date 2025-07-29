@@ -47,11 +47,11 @@
         <a-col :span="6" class="detail-label">文章推理L3商品名：</a-col>
         <a-col :span="18" class="detail-value">
           <vue-json-pretty
-              v-if="typeof parseJson(record.l3NameBiz, true) === 'object'"
-              :data="parseJson(record.l3NameBiz, true)"
+              v-if="typeof parseJson(record.bizL3Name, true) === 'object'"
+              :data="parseJson(record.bizL3Name, true)"
               :deep="3"
           />
-          <span v-else>{{ parseJson(record.l3NameBiz, true) }}</span>
+          <span v-else>{{ parseJson(record.bizL3Name, true) }}</span>
         </a-col>
       </a-row>
     </div>
