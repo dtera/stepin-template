@@ -36,14 +36,14 @@
         <a-col :span="18" class="detail-value">{{ record.prodType }}</a-col>
       </a-row>
 
-      <a-row class="detail-row">
+<!--      <a-row class="detail-row">
         <a-col :span="6" class="detail-label">商详：</a-col>
         <a-col :span="18" class="detail-value">
           <div v-html="parseJson(record.prodDetail)"></div>
         </a-col>
-      </a-row>
+      </a-row>-->
 
-      <a-row class="detail-row">
+<!--      <a-row class="detail-row">
         <a-col :span="6" class="detail-label">文章推理L3商品名：</a-col>
         <a-col :span="18" class="detail-value">
           <vue-json-pretty
@@ -53,7 +53,7 @@
           />
           <span v-else>{{ parseJson(record.bizL3Name, true) }}</span>
         </a-col>
-      </a-row>
+      </a-row>-->
     </div>
 
     <template #footer>

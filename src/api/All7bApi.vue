@@ -14,7 +14,7 @@ export const all7bColumns = [
     title: '商品title',
     dataIndex: 'prodTitle',
     key: 'prodTitle',
-    width: "15%",
+    width: "20%",
   },
   {
     title: '商品图片',
@@ -28,31 +28,37 @@ export const all7bColumns = [
     dataIndex: 'prodType',
     width: "6%",
   },
-  {
-    title: '商详',
-    key: 'prodDetail',
-    dataIndex: 'prodDetail',
-    width: "20%",
-    customCell: () => ({style: {wordBreak: 'break-all'}}),
-  },
+  // {
+  //   title: '品牌',
+  //   key: 'brandCnName',
+  //   dataIndex: 'brandCnName',
+  //   width: "6%",
+  // },
+  // {
+  //   title: '商详',
+  //   key: 'prodDetail',
+  //   dataIndex: 'prodDetail',
+  //   width: "20%",
+  //   customCell: () => ({style: {wordBreak: 'break-all'}}),
+  // },
   {
     title: '小店标准商品名',
-    key: 'normalName',
-    dataIndex: 'normalName',
+    key: 'l2Name',
+    dataIndex: 'l2Name',
     width: "9%",
   },
-  {
+  /*{
     title: '文章推理L3商品名',
     key: 'bizL3Name',
     dataIndex: 'bizL3Name',
-    width: "9%",
+    width: "12%",
   },
   {
     title: '文章推理品牌名',
-    key: 'brandBiz',
-    dataIndex: 'brandBiz',
-    width: "8%",
-  },
+    key: 'bizBrand',
+    dataIndex: 'bizBrand',
+    width: "12%",
+  },*/
   {
     title: '商品最低价',
     key: 'skuMinPrice',
