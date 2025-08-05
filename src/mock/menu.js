@@ -17,7 +17,7 @@ const presetList = [
   },
   {
     id: 2,
-    name: 'table',
+    name: 'table1',
     title: '商品列表',
     icon: 'TableOutlined',
     badge: '',
@@ -26,11 +26,36 @@ const presetList = [
     component: '@/pages/all7b',
     renderMenu: true,
     parent: null,
-    permission: null,
-    cacheable: true,
+    permission: null
   },
   {
     id: 3,
+    name: 'table2',
+    title: '早教启智',
+    icon: 'TableOutlined',
+    badge: '',
+    target: '_self',
+    path: '/list1',
+    component: '@/pages/all7b/All7bEarlyEdu.vue',
+    renderMenu: true,
+    parent: null,
+    permission: null
+  },
+  {
+    id: 4,
+    name: 'table3',
+    title: '食品酒水',
+    icon: 'TableOutlined',
+    badge: '',
+    target: '_self',
+    path: '/list2',
+    component: '@/pages/all7b/All7bFoodDrink.vue',
+    renderMenu: true,
+    parent: null,
+    permission: null
+  },
+  {
+    id: 5,
     name: 'personal',
     title: '个人中心',
     path: '/personal',

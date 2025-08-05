@@ -1,77 +1,72 @@
 <!--suppress ES6UnusedImports, JSUnusedGlobalSymbols -->
 <script lang="ts" setup>
-import {computed, ref} from 'vue';
-import {usePagination} from 'vue-request';
-import {all7bColumns, all7bTotal, apiAll7bList} from '@/api/All7bApi.vue';
-import VueJsonPretty from 'vue-json-pretty';
-import 'vue-json-pretty/lib/styles.css';
-import Detail from './Detail.vue';
-import {parseJson} from '@/utils/utils';
+  import { computed, ref } from 'vue';
+  import { usePagination } from 'vue-request';
+  import { all7bColumns, all7bTotal, apiAll7bList } from '@/api/All7bApi.vue';
+  import VueJsonPretty from 'vue-json-pretty';
+  import 'vue-json-pretty/lib/styles.css';
+  import Detail from './Detail.vue';
+  import { parseJson } from '@/utils/utils';
 
-// 详情弹窗状态
-const detailVisible = ref(false);
-const currentRecord = ref<any>(null);
+  // 详情弹窗状态
+  const detailVisible = ref(false);
+  const currentRecord = ref<any>(null);
 
-// 打开详情弹窗
-const showDetail = (record: any) => {
-  currentRecord.value = record;
-  detailVisible.value = true;
-};
-
-// 关闭详情弹窗
-const closeDetail = () => {
-  detailVisible.value = false;
-  currentRecord.value = null;
-};
-
-const {
-  data,
-  run,
-  loading,
-  current,
-  pageSize,
-} = usePagination(apiAll7bList, {
-  pagination: {
-    currentKey: 'pageNum',
-    pageSizeKey: 'pageSize',
-  },
-  defaultParams: [{pageNum: 1, pageSize: 10}]
-});
-
-const pagination = computed(() => ({
-  total: all7bTotal.value,
-  current: current.value,
-  pageSize: pageSize.value,
-  showSizeChanger: true,
-  showQuickJumper: true,
-  showTotal: (total: number) => `共 ${total} 条`
-}));
-
-const handleTableChange = (
-    pag: { pageSize: number; current: number },
-    filters: any,
-    sorter: any,
-) => {
-  run({
-    pageSize: pag.pageSize,
-    pageNum: pag.current,
-    sortField: sorter.field,
-    sortOrder: sorter.order,
-    ...filters,
+  const props = defineProps({
+    reqMethod: String,
   });
-};
 
-const dataSource = computed(() => data.value || []);
+  const reqMethod = computed(() => props.reqMethod || 'list');
 
+  // 打开详情弹窗
+  const showDetail = (record: any) => {
+    currentRecord.value = record;
+    detailVisible.value = true;
+  };
+
+  // 关闭详情弹窗
+  const closeDetail = () => {
+    detailVisible.value = false;
+    currentRecord.value = null;
+  };
+
+  const { data, run, loading, current, pageSize } = usePagination(apiAll7bList(reqMethod.value), {
+    pagination: {
+      currentKey: 'pageNum',
+      pageSizeKey: 'pageSize',
+    },
+    defaultParams: [{ pageNum: 1, pageSize: 10 }],
+  });
+
+  const pagination = computed(() => ({
+    total: all7bTotal.value,
+    current: current.value,
+    pageSize: pageSize.value,
+    showSizeChanger: true,
+    showQuickJumper: true,
+    showTotal: (total: number) => `共 ${total} 条`,
+  }));
+
+  const handleTableChange = (pag: { pageSize: number; current: number }, filters: any, sorter: any) => {
+    run({
+      pageSize: pag.pageSize,
+      pageNum: pag.current,
+      sortField: sorter.field,
+      sortOrder: sorter.order,
+      ...filters,
+    });
+  };
+
+  const dataSource = computed(() => data.value || []);
 </script>
 
 <template>
   <a-table
-      :columns="all7bColumns"
-      :data-source="dataSource"
-      :pagination="pagination"
-      :loading="loading"
-      @change="handleTableChange"
+    :columns="all7bColumns"
+    :data-source="dataSource"
+    :pagination="pagination"
+    :loading="loading"
+    @change="handleTableChange"
   >
     <template #bodyCell="{ column, text, record }">
       <template v-if="column.key === 'action'">
@@ -80,32 +75,21 @@ const dataSource = computed(() => data.value || []);
         </a-space>
       </template>
       <template v-else-if="column.key === 'prodImgUrl'">
-        <a-image
-            :width="60"
-            :src="text.split(',')[0]"
-        />
+        <a-image :width="60" :src="text.split(',')[0]" />
       </template>
       <template v-else-if="column.key === 'prodDetail'">
         <div v-html="parseJson(text)"></div>
       </template>
       <template v-else-if="column.key === 'prodLlmPredNames'">
-        <vue-json-pretty
-            v-if="typeof parseJson(text, true) === 'object'"
-            :data="parseJson(text, true)"
-            :deep="3"
-        />
+        <vue-json-pretty v-if="typeof parseJson(text, true) === 'object'" :data="parseJson(text, true)" :deep="3" />
         <span v-else>{{ parseJson(text, true) }}</span>
       </template>
       <template v-else-if="column.key === 'skuMinPrice'">
-        <div>{{text / 100}}元</div>
+        <div>{{ text / 100 }}元</div>
       </template>
     </template>
   </a-table>
 
   <!-- 详情弹窗组件 -->
-  <Detail
-      v-model:visible="detailVisible"
-      :record="currentRecord"
-      @close="closeDetail"
-  />
+  <Detail v-model:visible="detailVisible" :record="currentRecord" @close="closeDetail" />
 </template>
